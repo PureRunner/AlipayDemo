@@ -57,16 +57,11 @@ CGFloat const section_h = 45.f;
         [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         btn.titleLabel.font = [UIFont systemFontOfSize:14.f];
         if ([btn isEqual:swichButton]) {
-            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-                [UIView animateWithDuration:0.5 animations:^{
-                    btn.titleLabel.font = [UIFont systemFontOfSize:18.f];
-                    [btn setTitleColor:[UIColor orangeColor] forState:UIControlStateNormal];
-                    [weafSelf.footView selectContactsIndex:swichButton.tag-10 updateBlock:^(BOOL isFull) {
-                        
-                    }];
-                }];
+            btn.titleLabel.font = [UIFont systemFontOfSize:20.f];
+            [btn setTitleColor:[UIColor orangeColor] forState:UIControlStateNormal];
+            [weafSelf.footView selectContactsIndex:swichButton.tag-10 updateBlock:^(BOOL isFull) {
                 
-            });
+            }];
         }
         
     }

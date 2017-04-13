@@ -7,11 +7,13 @@
 //
 
 #import "YTMsgListController.h"
+#import "MJRefresh.h"
 
 @interface YTMsgListController () <UITableViewDelegate ,UITableViewDataSource>
 
 
 @property (nonatomic ,strong) UITableView *tableView;
+@property (nonatomic ,strong) NSMutableArray *dataArray;
 
 @end
 
@@ -21,6 +23,23 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor lightGrayColor];
     [self.view addSubview:self.tableView];
+    
+    __weak typeof(self) weakSelf = self;
+    MJRefreshNormalHeader *headerRefresh = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        static NSInteger page = 0;
+        if (page < 3) {
+            for (int i = 0; i < 3; i ++) {
+                [weakSelf.dataArray addObject:@"00000"];
+            }
+        }
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [weakSelf.tableView.mj_header endRefreshing];
+            [weakSelf.tableView reloadData];
+            page ++;
+            
+        });
+    }];
+    self.tableView.mj_header = headerRefresh;
 }
 
 
@@ -29,7 +48,7 @@
 
 
 - (NSInteger )tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 4;
+    return self.dataArray.count;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     static NSString *cellIdentifier = @"cell";
@@ -37,13 +56,13 @@
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     }
-    cell.textLabel.text = [NSString stringWithFormat:@"00000--%@",[NSNumber numberWithInteger:indexPath.row]];
+    cell.textLabel.text = [NSString stringWithFormat:@"%@--%@",self.dataArray[indexPath.row],[NSNumber numberWithInteger:indexPath.row]];
 
     return cell;
     
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 60.f;
+    return 80.f;
 }
 
 - (void)viewDidLayoutSubviews{
@@ -63,6 +82,18 @@
     return _tableView;
 }
 
+
+
+- (NSMutableArray *)dataArray{
+    if (!_dataArray) {
+        _dataArray  = [NSMutableArray arrayWithCapacity:2];
+        for (int i = 1; i < 3; i ++) {
+            [_dataArray addObject:@"00000"];
+        }
+    }
+    return _dataArray;
+    
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 
