@@ -13,8 +13,10 @@
 CGFloat const line_h = 10.f;
 CGFloat const section_h = 45.f;
 
-
-@interface YTMessageController ()<UITableViewDelegate ,UITableViewDataSource>
+@interface YTMessageController ()<UITableViewDelegate ,UITableViewDataSource,YTContactsUsersProtocol>{
+    CGFloat maxOffset;
+    CGFloat minFootView_h;
+}
 
 @property (nonatomic ,strong) NSMutableArray *swichButtonArray;
 
@@ -36,12 +38,19 @@ CGFloat const section_h = 45.f;
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"消息";
+    maxOffset = headerView_h;
+
     [self.view addSubview:self.tableView];
     [self.headerView addSubview:self.lineView];
 
     self.tableView.tableHeaderView = self.headerView;
     self.tableView.tableFooterView = self.footView;
+    self.footView.contacterVC.delegate = self;
+    self.footView.messageVC.delegate = self;
     
+    //设置初始按钮状态
+    [self switchMessageList:(UIButton*)self.swichButtonArray[0]];
+
 }
 - (void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:YES];
@@ -51,9 +60,10 @@ CGFloat const section_h = 45.f;
 
 }
 - (void)switchMessageList:(UIButton *)swichButton {
+    [self.tableView setContentOffset:CGPointZero animated:YES];
     __weak YTMessageController *weafSelf = self;
+
     for (UIButton *btn in self.swichButtonArray) {
-        
         [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         btn.titleLabel.font = [UIFont systemFontOfSize:14.f];
         if ([btn isEqual:swichButton]) {
@@ -63,7 +73,6 @@ CGFloat const section_h = 45.f;
                 
             }];
         }
-        
     }
     
 
@@ -95,38 +104,71 @@ CGFloat const section_h = 45.f;
     UIView *sectionView = [[UIView alloc] initWithFrame:CGRectMake(0, 0,section_w , section_h)];
     sectionView.backgroundColor = [UIColor whiteColor];
     for (int i = 0; i < 2; i++) {
-        UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-        [btn setBackgroundColor:[UIColor clearColor]];
+        UIButton *btn = (UIButton *)self.swichButtonArray[i];
         btn.frame = CGRectMake((section_w/2)*i, (section_h - 30.f)/2, section_w/2, 30.f);
-        NSString *title = i==0? @"消息":@"联系人";
-        [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-        [btn setTitle:title forState:UIControlStateNormal];
-        btn.titleLabel.font = [UIFont systemFontOfSize:14.f];
-
-        btn.tag = i + 10;
         [sectionView addSubview:btn];
-        [btn addTarget:self action:@selector(switchMessageList:) forControlEvents:UIControlEventTouchUpInside];
-        [self.swichButtonArray addObject:btn];
-    }
-    [self switchMessageList:(UIButton*)self.swichButtonArray[0]];
-    UIView *line = [[UIView alloc] initWithFrame:CGRectMake(0.f,section_h-1.f , section_w, 1.f)];
-    line.backgroundColor = [UIColor lightGrayColor];
-    [sectionView addSubview:line];
+     }
+
+    sectionView.layer.shadowColor = [UIColor blackColor].CGColor;
+    sectionView.layer.shadowOffset = CGSizeMake(0, 2);
+    sectionView.layer.shadowOpacity = 0.2;
+
     return sectionView;
 }
+
+#pragma mark YTContactsUsersProtocol
+- (void)scrollWillBeginDecelerating:(CGPoint)point{
+}
+- (void)scrollDidEndDragging:(CGFloat)offset willDecelerate:(BOOL)decelerate {
+}
+
+- (void)scrollDidScroll:(CGFloat)offset{
+
+    if (offset < maxOffset && offset > 0.f) {
+        [self.tableView setContentOffset:CGPointMake(0, offset) animated:NO];
+    }
+    else if (offset > maxOffset) {
+      [self.tableView setContentOffset:CGPointMake(0, maxOffset) animated:NO];
+    }
+    
+    
+}
+- (void)childTableViewContentSizeChanged:(CGSize)size {
+    
+    CGFloat foot_h = minFootView_h + maxOffset;
+    CGRect footRect = self.footView.frame;
+
+    if (0 <size.height < minFootView_h) {
+        footRect.size.height = minFootView_h;
+    }
+//    else if (size.height > minFootView_h && size.height < foot_h+maxOffset){
+//        footRect.size.height = size.height+maxOffset;
+//    }
+//    
+    else {
+        footRect.size.height = foot_h;
+    }
+    self.footView.frame = footRect;
+
+}
+
+
+
+#pragma mark - UI
 
 - (void)viewDidLayoutSubviews{
     [super viewDidLayoutSubviews];
     
     CGFloat self_w = CGRectGetWidth(self.view.frame);
     CGFloat self_h = CGRectGetHeight(self.view.frame);
-    self.tableView.frame = CGRectMake(0.f, navBar_h, self_w, self_h - navBar_h - tabbar_h);
+    self.tableView.frame = CGRectMake(0.f, navBar_h, self_w, self_h - navBar_h - tabbar_h );
     self.headerView.frame = CGRectMake(0.f, 0.f, CGRectGetWidth(self.tableView.frame), headerView_h);
 
     self.lineView.frame  =CGRectMake(0.f, CGRectGetMaxY(self.headerView.frame)-line_h, CGRectGetWidth(self.headerView.frame), line_h);
     CGFloat foot_h = CGRectGetHeight(self.tableView.frame) - CGRectGetHeight(self.headerView.frame) - section_h;
 
     self.footView.frame = CGRectMake(0.f, 0.f, self_w, foot_h);
+    minFootView_h = foot_h;
     
 }
 
@@ -167,6 +209,19 @@ CGFloat const section_h = 45.f;
 - (NSMutableArray *)swichButtonArray{
     if (!_swichButtonArray) {
         _swichButtonArray = [NSMutableArray arrayWithCapacity:2 ];
+        for (int i = 0; i < 2; i++) {
+            UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+            [btn setBackgroundColor:[UIColor clearColor]];
+            NSString *title = i==0? @"消息":@"联系人";
+            [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+            [btn setTitle:title forState:UIControlStateNormal];
+            btn.titleLabel.font = [UIFont systemFontOfSize:14.f];
+            
+            btn.tag = i + 10;
+            [btn addTarget:self action:@selector(switchMessageList:) forControlEvents:UIControlEventTouchUpInside];
+            [_swichButtonArray addObject:btn];
+        }
+
     }
     return _swichButtonArray;
 }

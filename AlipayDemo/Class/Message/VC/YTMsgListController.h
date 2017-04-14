@@ -7,8 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "YTContactsUsersProtocol.h"
 
-@interface YTMsgListController : UIViewController
+@interface YTMsgListController : UIViewController <YTContactsUsersProtocol>
+@property (nonatomic ,assign) id <YTContactsUsersProtocol> delegate;
+@property (nonatomic ,strong) UITableView *tableView;
 
 @end
 

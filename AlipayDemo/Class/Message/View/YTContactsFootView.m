@@ -7,14 +7,15 @@
 //
 
 #import "YTContactsFootView.h"
-#import "YTMsgListController.h"
-#import "YTContacterController.h"
 
 
-@interface YTContactsFootView  ()
 
+@interface YTContactsFootView  () {
+    
+}
 
 @property (nonatomic ,strong) UIScrollView *scrollView;
+
 @end
 @implementation YTContactsFootView
 
@@ -31,29 +32,6 @@
     }
     return self;
 }
-#pragma mark -- YTContactsUsersProtocol
-- (void)scrollDidEndDragging:(CGFloat)offset decelerate:(BOOL)decelerate{
-    if (self.delegate && [self.delegate respondsToSelector:@selector(scrollDidEndDragging:decelerate:)]) {
-        [self.delegate scrollDidEndDragging:offset decelerate:decelerate];
-    }
-}
-- (void)scrollDidScrollOffset:(CGFloat)offset{
-    if (self.delegate && [self.delegate respondsToSelector:@selector(scrollDidScrollOffset:)]) {
-        [self.delegate scrollDidScrollOffset:offset];
-    }
-    
-}
-- (void)scrollViewBeginDragging:(CGFloat)offset{
-    if (self.delegate && [self.delegate respondsToSelector:@selector(scrollWillBeginDragging:)]) {
-        [self.delegate scrollWillBeginDragging:offset];
-    }
-}
-- (void)scrollDidEndDecelerating:(CGFloat)offset{
-    if (self.delegate && [self.delegate respondsToSelector:@selector(scrollDidEndDecelerating:)]) {
-        [self.delegate scrollDidEndDecelerating:offset];
-    }
-}
-
 
 
 
@@ -73,15 +51,13 @@
 
     if (index == 0) {
        [self.scrollView setContentOffset:CGPointMake(0, 0) animated:YES];
-        if (update) {
-           
-        }
+    
     }
     else if (index == 1){
         [self.scrollView setContentOffset:CGPointMake(self_w, 0) animated:YES];
-        if (update) {
-        }
+
     }
+    update(YES);
     
 }
 

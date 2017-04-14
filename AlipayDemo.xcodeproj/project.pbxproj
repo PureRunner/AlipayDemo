@@ -236,6 +236,7 @@
 				TargetAttributes = {
 					6F8585941E9F60AA0072D840 = {
 						CreatedOnToolsVersion = 8.3.1;
+						DevelopmentTeam = QLD6CAGKDK;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -451,6 +452,7 @@
 			baseConfigurationReference = DA275ED3E6CB8A3E9CC65630 /* Pods-AlipayDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = QLD6CAGKDK;
 				INFOPLIST_FILE = AlipayDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = yutong.AlipayDemo;
@@ -463,6 +465,7 @@
 			baseConfigurationReference = 293A1EFCD3D4C588041F8492 /* Pods-AlipayDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = QLD6CAGKDK;
 				INFOPLIST_FILE = AlipayDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = yutong.AlipayDemo;
@@ -489,6 +492,7 @@
 				6F8585AE1E9F60AA0072D840 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

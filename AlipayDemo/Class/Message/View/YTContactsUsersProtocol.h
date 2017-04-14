@@ -12,12 +12,18 @@
 
 
 @optional
-- (void)scrollDidEndDragging:(CGFloat)offset decelerate:(BOOL)decelerate;
 
-- (void)scrollDidScrollOffset:(CGFloat)offset;
 
-- (void)scrollWillBeginDragging:(CGFloat)offset;
+- (void)childTableViewContentSizeChanged:(CGSize)size;
 
-- (void)scrollDidEndDecelerating:(CGFloat)offset;
+- (void)scrollWillBeginDecelerating:(CGPoint)point;
+
+- (void)scrollDidEndDragging:(CGFloat)offset willDecelerate:(BOOL)decelerate;
+
+- (void)scrollDidScroll:(CGFloat)offset;
+
+
+
+
 
 @end

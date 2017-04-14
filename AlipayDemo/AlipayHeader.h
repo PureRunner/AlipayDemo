@@ -15,7 +15,7 @@ CGFloat const headerView_h = 110.f;
 CGFloat const navBar_h = 64.f;
 
 
-#define SCREEN_h CGRectGetHeight([UIScreen mainScreen].bounds)
+#define SCREEN_H CGRectGetHeight([UIScreen mainScreen].bounds)
 #define SCREEN_W CGRectGetWidth([UIScreen mainScreen].bounds)
 
 #endif /* AlipayHeader_h */

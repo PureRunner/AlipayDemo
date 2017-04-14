@@ -7,16 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
-
-#import "YTContactsUsersProtocol.h"
+#import "YTMsgListController.h"
+#import "YTContacterController.h"
 
 
 @class YTContacterController;
 @class YTMsgListController;
 
-@interface YTContactsFootView : UIView <YTContactsUsersProtocol>
+@interface YTContactsFootView : UIView
 
-@property (nonatomic ,assign) id <YTContactsUsersProtocol> delegate;
 
 @property (nonatomic ,strong) YTMsgListController *messageVC;
 @property (nonatomic ,strong) YTContacterController *contacterVC;

@@ -9,16 +9,30 @@
 #import "YTMsgListController.h"
 #import "MJRefresh.h"
 
-@interface YTMsgListController () <UITableViewDelegate ,UITableViewDataSource>
+@interface YTMsgListController () <UITableViewDelegate ,UITableViewDataSource> {
+    CGFloat maxTable_h;
+
+}
 
 
-@property (nonatomic ,strong) UITableView *tableView;
+
 @property (nonatomic ,strong) NSMutableArray *dataArray;
+
 
 @end
 
 @implementation YTMsgListController
 
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:YES];
+    [self.tableView addObserver:self forKeyPath:@"contentSize" options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld context:nil];
+    
+}
+- (void)viewDidDisappear:(BOOL)animated{
+    [super viewDidDisappear:YES];
+    [self.tableView removeObserver:self forKeyPath:@"contentSize"];
+    
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor lightGrayColor];
@@ -42,11 +56,28 @@
     self.tableView.mj_header = headerRefresh;
 }
 
+#pragma mark - KVC-contentSize 
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context{
+    if ([[change objectForKey:NSKeyValueChangeKindKey] integerValue] != 1)
+        return;
+    
+    if ([object isEqual:self.tableView] && [keyPath isEqualToString:@"contentSize"]) {
+        CGSize newSize = [[change objectForKey:NSKeyValueChangeNewKey] CGSizeValue];
+        CGSize oldSize = [[change objectForKey:NSKeyValueChangeOldKey] CGSizeValue];
+        NSLog(@"-- new:%f --old: %f:",newSize.height,oldSize.height);
+        
+        if (CGSizeEqualToSize(oldSize, newSize)) return;
+        
+        if (self.delegate && [self.delegate respondsToSelector:@selector(childTableViewContentSizeChanged:)]) {
+            [self.delegate childTableViewContentSizeChanged:newSize];
+            
+        }
+    }
+}
 
 
-
-
-
+#pragma mark - UITableViewDelegate && UITableViewDataSource
 - (NSInteger )tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return self.dataArray.count;
 }
@@ -65,23 +96,48 @@
     return 80.f;
 }
 
+#pragma mark - UIScrollViewDelegate
+- (void)scrollViewWillBeginDecelerating:(UIScrollView *)scrollView {
+    CGPoint point = scrollView.contentOffset;
+    if (self.delegate && [self.delegate respondsToSelector:@selector(scrollWillBeginDecelerating:)]) {
+        [self.delegate scrollWillBeginDecelerating:point];
+    }
+    
+}
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
+    CGFloat y = scrollView.contentOffset.y;
+    if (self.delegate && [self.delegate respondsToSelector:@selector(scrollDidEndDragging:willDecelerate:)]) {
+        [self.delegate scrollDidEndDragging:y willDecelerate:decelerate];
+    }
+    
+}
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    CGFloat y = scrollView.contentOffset.y;
+    if (self.delegate && [self.delegate respondsToSelector:@selector(scrollDidScroll:)]) {
+        [self.delegate scrollDidScroll:y];
+    }
+    
+}
+
+
 - (void)viewDidLayoutSubviews{
     [super viewDidLayoutSubviews];
     self.tableView.frame = self.view.bounds;
 }
 
+#pragma mark - UI
+
+
 - (UITableView *)tableView {
     if (!_tableView) {
         _tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
         _tableView.backgroundColor = [UIColor groupTableViewBackgroundColor];
-        _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+        _tableView.tableFooterView = [[UIView alloc] init];
         _tableView.delegate = self;
         _tableView.dataSource = self;
-        
     }
     return _tableView;
 }
-
 
 
 - (NSMutableArray *)dataArray{
