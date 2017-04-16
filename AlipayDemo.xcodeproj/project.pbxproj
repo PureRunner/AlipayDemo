@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		237AD5C266E40B4BA3401D9C /* libPods-AlipayDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7843CA3B55194315031C976D /* libPods-AlipayDemo.a */; };
+		5450269C1EA38B2400C0222B /* MyApplicationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5450269B1EA38B2400C0222B /* MyApplicationView.m */; };
+		5450269F1EA38B6400C0222B /* YTApplicationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5450269E1EA38B6400C0222B /* YTApplicationController.m */; };
+		545026A21EA38BEB00C0222B /* YTHomeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 545026A11EA38BEB00C0222B /* YTHomeController.m */; };
+		545026A51EA38E4000C0222B /* YTHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 545026A41EA38E4000C0222B /* YTHeaderView.m */; };
+		545026A81EA38E5A00C0222B /* YTModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 545026A71EA38E5A00C0222B /* YTModel.m */; };
 		6F85859A1E9F60AA0072D840 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F8585991E9F60AA0072D840 /* main.m */; };
 		6F85859D1E9F60AA0072D840 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F85859C1E9F60AA0072D840 /* AppDelegate.m */; };
 		6F8585A01E9F60AA0072D840 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F85859F1E9F60AA0072D840 /* ViewController.m */; };
@@ -22,6 +27,16 @@
 
 /* Begin PBXFileReference section */
 		293A1EFCD3D4C588041F8492 /* Pods-AlipayDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AlipayDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-AlipayDemo/Pods-AlipayDemo.release.xcconfig"; sourceTree = "<group>"; };
+		5450269A1EA38B2400C0222B /* MyApplicationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyApplicationView.h; sourceTree = "<group>"; };
+		5450269B1EA38B2400C0222B /* MyApplicationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyApplicationView.m; sourceTree = "<group>"; };
+		5450269D1EA38B6400C0222B /* YTApplicationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YTApplicationController.h; sourceTree = "<group>"; };
+		5450269E1EA38B6400C0222B /* YTApplicationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YTApplicationController.m; sourceTree = "<group>"; };
+		545026A01EA38BEB00C0222B /* YTHomeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YTHomeController.h; sourceTree = "<group>"; };
+		545026A11EA38BEB00C0222B /* YTHomeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YTHomeController.m; sourceTree = "<group>"; };
+		545026A31EA38E4000C0222B /* YTHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YTHeaderView.h; sourceTree = "<group>"; };
+		545026A41EA38E4000C0222B /* YTHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YTHeaderView.m; sourceTree = "<group>"; };
+		545026A61EA38E5A00C0222B /* YTModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YTModel.h; path = AlipayDemo/Class/Home/View/YTModel.h; sourceTree = SOURCE_ROOT; };
+		545026A71EA38E5A00C0222B /* YTModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YTModel.m; path = AlipayDemo/Class/Home/View/YTModel.m; sourceTree = SOURCE_ROOT; };
 		6F8585951E9F60AA0072D840 /* AlipayDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AlipayDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F8585991E9F60AA0072D840 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		6F85859B1E9F60AA0072D840 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -67,6 +82,62 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		545026941EA38AE400C0222B /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				545026951EA38AE400C0222B /* VC */,
+				545026961EA38AE400C0222B /* View */,
+			);
+			name = Application;
+			path = Class/Application;
+			sourceTree = "<group>";
+		};
+		545026951EA38AE400C0222B /* VC */ = {
+			isa = PBXGroup;
+			children = (
+				5450269D1EA38B6400C0222B /* YTApplicationController.h */,
+				5450269E1EA38B6400C0222B /* YTApplicationController.m */,
+			);
+			path = VC;
+			sourceTree = "<group>";
+		};
+		545026961EA38AE400C0222B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				5450269A1EA38B2400C0222B /* MyApplicationView.h */,
+				5450269B1EA38B2400C0222B /* MyApplicationView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		545026971EA38AE400C0222B /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				545026981EA38AE400C0222B /* VC */,
+				545026991EA38AE400C0222B /* View */,
+			);
+			name = Home;
+			path = Class/Home;
+			sourceTree = "<group>";
+		};
+		545026981EA38AE400C0222B /* VC */ = {
+			isa = PBXGroup;
+			children = (
+				545026A01EA38BEB00C0222B /* YTHomeController.h */,
+				545026A11EA38BEB00C0222B /* YTHomeController.m */,
+			);
+			path = VC;
+			sourceTree = "<group>";
+		};
+		545026991EA38AE400C0222B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				545026A31EA38E4000C0222B /* YTHeaderView.h */,
+				545026A41EA38E4000C0222B /* YTHeaderView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		6F85858C1E9F60AA0072D840 = {
 			isa = PBXGroup;
 			children = (
@@ -88,8 +159,8 @@
 		6F8585971E9F60AA0072D840 /* AlipayDemo */ = {
 			isa = PBXGroup;
 			children = (
-				6F8585B01E9F645E0072D840 /* Home */,
-				6F8585AF1E9F645E0072D840 /* APP */,
+				545026941EA38AE400C0222B /* Application */,
+				545026971EA38AE400C0222B /* Home */,
 				6F8585B11E9F645E0072D840 /* Message */,
 				6F85859B1E9F60AA0072D840 /* AppDelegate.h */,
 				6F85859C1E9F60AA0072D840 /* AppDelegate.m */,
@@ -113,25 +184,6 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		6F8585AF1E9F645E0072D840 /* APP */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = APP;
-			path = Class/APP;
-			sourceTree = "<group>";
-		};
-		6F8585B01E9F645E0072D840 /* Home */ = {
-			isa = PBXGroup;
-			children = (
-				6F8585B31E9F64860072D840 /* VC */,
-				6F8585B21E9F64860072D840 /* Model */,
-				6F8585B41E9F64860072D840 /* View */,
-			);
-			name = Home;
-			path = Class/Home;
-			sourceTree = "<group>";
-		};
 		6F8585B11E9F645E0072D840 /* Message */ = {
 			isa = PBXGroup;
 			children = (
@@ -143,30 +195,11 @@
 			path = Class/Message;
 			sourceTree = "<group>";
 		};
-		6F8585B21E9F64860072D840 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		6F8585B31E9F64860072D840 /* VC */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = VC;
-			sourceTree = "<group>";
-		};
-		6F8585B41E9F64860072D840 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
 		6F8585B51E9F65100072D840 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				545026A61EA38E5A00C0222B /* YTModel.h */,
+				545026A71EA38E5A00C0222B /* YTModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -325,10 +358,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				545026A51EA38E4000C0222B /* YTHeaderView.m in Sources */,
 				6F8585A01E9F60AA0072D840 /* ViewController.m in Sources */,
+				545026A81EA38E5A00C0222B /* YTModel.m in Sources */,
+				545026A21EA38BEB00C0222B /* YTHomeController.m in Sources */,
 				6F85859D1E9F60AA0072D840 /* AppDelegate.m in Sources */,
 				6F8585BA1E9F65310072D840 /* YTMessageController.m in Sources */,
+				5450269C1EA38B2400C0222B /* MyApplicationView.m in Sources */,
 				6F8585C41E9F78410072D840 /* YTContactsFootView.m in Sources */,
+				5450269F1EA38B6400C0222B /* YTApplicationController.m in Sources */,
 				6F8585BD1E9F65790072D840 /* YTMsgListController.m in Sources */,
 				6F8585C01E9F65D20072D840 /* YTContacterController.m in Sources */,
 				6F85859A1E9F60AA0072D840 /* main.m in Sources */,

@@ -15,7 +15,7 @@ CGFloat const section_h = 45.f;
 
 @interface YTMessageController ()<UITableViewDelegate ,UITableViewDataSource,YTContactsUsersProtocol>{
     CGFloat maxOffset;
-    CGFloat minFootView_h;
+    CGFloat footView_h;
 }
 
 @property (nonatomic ,strong) NSMutableArray *swichButtonArray;
@@ -135,19 +135,24 @@ CGFloat const section_h = 45.f;
 }
 - (void)childTableViewContentSizeChanged:(CGSize)size {
     
-    CGFloat foot_h = minFootView_h + maxOffset;
-    CGRect footRect = self.footView.frame;
+    CGFloat minScroll_h = footView_h - maxOffset;
+    CGFloat maxScroll_h = footView_h + maxOffset;
 
-    if (0 <size.height < minFootView_h) {
-        footRect.size.height = minFootView_h;
+
+    
+    CGRect footRect = self.footView.frame;
+    
+    
+    if (0 <size.height && size.height < minScroll_h) {
+        footRect.size.height = footView_h;
     }
-//    else if (size.height > minFootView_h && size.height < foot_h+maxOffset){
-//        footRect.size.height = size.height+maxOffset;
-//    }
-//    
-    else {
-        footRect.size.height = foot_h;
+    else if (size.height < maxScroll_h && size.height > minScroll_h){
+         footRect.size.height = footView_h;
     }
+    else if (size.height > maxScroll_h) {//最大
+        footRect.size.height = footView_h;
+    }
+    
     self.footView.frame = footRect;
 
 }
@@ -161,14 +166,14 @@ CGFloat const section_h = 45.f;
     
     CGFloat self_w = CGRectGetWidth(self.view.frame);
     CGFloat self_h = CGRectGetHeight(self.view.frame);
-    self.tableView.frame = CGRectMake(0.f, navBar_h, self_w, self_h - navBar_h - tabbar_h );
+    self.tableView.frame = CGRectMake(0.f, navBar_h, self_w, self_h - navBar_h - tabbar_h  + headerView_h);
     self.headerView.frame = CGRectMake(0.f, 0.f, CGRectGetWidth(self.tableView.frame), headerView_h);
 
     self.lineView.frame  =CGRectMake(0.f, CGRectGetMaxY(self.headerView.frame)-line_h, CGRectGetWidth(self.headerView.frame), line_h);
-    CGFloat foot_h = CGRectGetHeight(self.tableView.frame) - CGRectGetHeight(self.headerView.frame) - section_h;
+    CGFloat foot_h = CGRectGetHeight(self.tableView.frame) - CGRectGetHeight(self.headerView.frame)  - section_h;
 
     self.footView.frame = CGRectMake(0.f, 0.f, self_w, foot_h);
-    minFootView_h = foot_h;
+    footView_h = foot_h;
     
 }
 
