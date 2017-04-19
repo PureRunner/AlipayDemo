@@ -7,7 +7,6 @@
 //
 
 #import "YTMsgListController.h"
-#import "MJRefresh.h"
 
 @interface YTMsgListController () <UITableViewDelegate ,UITableViewDataSource> {
     CGFloat maxTable_h;

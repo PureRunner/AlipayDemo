@@ -7,8 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "YTMsgListController.h"
-#import "YTContacterController.h"
+
 
 
 @class YTContacterController;

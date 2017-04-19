@@ -7,11 +7,17 @@
 //
 
 #import "YTMessageController.h"
-#import "AlipayHeader.h"
-#import "YTContactsFootView.h"
 
-CGFloat const line_h = 10.f;
+#import "YTContactsFootView.h"
+#import "YTMsgListController.h"
+#import "YTContacterController.h"
+
+CGFloat const header_h = 110.f;
 CGFloat const section_h = 45.f;
+
+
+
+
 
 @interface YTMessageController ()<UITableViewDelegate ,UITableViewDataSource,YTContactsUsersProtocol>{
     CGFloat maxOffset;
@@ -38,7 +44,7 @@ CGFloat const section_h = 45.f;
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"消息";
-    maxOffset = headerView_h;
+    maxOffset = header_h;
 
     [self.view addSubview:self.tableView];
     [self.headerView addSubview:self.lineView];
@@ -55,7 +61,7 @@ CGFloat const section_h = 45.f;
 - (void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:YES];
     CGSize size = self.tableView.contentSize;
-    size.height = size.height + headerView_h - line_h;
+    size.height = size.height + header_h - line_h;
     self.tableView.contentSize = size;
 
 }
@@ -166,8 +172,8 @@ CGFloat const section_h = 45.f;
     
     CGFloat self_w = CGRectGetWidth(self.view.frame);
     CGFloat self_h = CGRectGetHeight(self.view.frame);
-    self.tableView.frame = CGRectMake(0.f, navBar_h, self_w, self_h - navBar_h - tabbar_h  + headerView_h);
-    self.headerView.frame = CGRectMake(0.f, 0.f, CGRectGetWidth(self.tableView.frame), headerView_h);
+    self.tableView.frame = CGRectMake(0.f, navBar_h, self_w, self_h - navBar_h - tabbar_h  + header_h);
+    self.headerView.frame = CGRectMake(0.f, 0.f, CGRectGetWidth(self.tableView.frame), header_h);
 
     self.lineView.frame  =CGRectMake(0.f, CGRectGetMaxY(self.headerView.frame)-line_h, CGRectGetWidth(self.headerView.frame), line_h);
     CGFloat foot_h = CGRectGetHeight(self.tableView.frame) - CGRectGetHeight(self.headerView.frame)  - section_h;

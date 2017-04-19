@@ -7,7 +7,8 @@
 //
 
 #import "YTContactsFootView.h"
-
+#import "YTMsgListController.h"
+#import "YTContacterController.h"
 
 
 @interface YTContactsFootView  () {

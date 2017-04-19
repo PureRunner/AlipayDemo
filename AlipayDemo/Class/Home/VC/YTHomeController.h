@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "YTHomeMainController.h"
 
-@interface YTHomeController : UIViewController
-
+@interface YTHomeController : YTHomeMainController
 @end

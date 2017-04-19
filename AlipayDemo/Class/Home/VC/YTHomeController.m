@@ -13,10 +13,15 @@
 @end
 
 @implementation YTHomeController
-
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:YES];
+    self.navigationController.navigationBarHidden = YES;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"首页";
+
+
 
 
 }

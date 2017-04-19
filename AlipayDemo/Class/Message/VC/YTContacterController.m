@@ -7,7 +7,6 @@
 //
 
 #import "YTContacterController.h"
-#import "MJRefresh.h"
 
 @interface YTContacterController () <UITableViewDelegate,UITableViewDataSource> {
 }

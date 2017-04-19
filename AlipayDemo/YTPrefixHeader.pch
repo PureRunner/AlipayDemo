@@ -1,0 +1,24 @@
+//
+//  YTPrefixHeader.pch
+//  AlipayDemo
+//
+//  Created by apple on 2017/4/18.
+//  Copyright © 2017年 YT. All rights reserved.
+//
+
+#ifndef YTPrefixHeader_pch
+#define YTPrefixHeader_pch
+
+#import "HexColors.h"
+#import "MJRefresh.h"
+
+#define SCREEN_H CGRectGetHeight([UIScreen mainScreen].bounds)
+#define SCREEN_W CGRectGetWidth([UIScreen mainScreen].bounds)
+#define WEAKSELF typeof(self) __weak weakSelf = self;
+
+#define tabbar_h 44.f
+#define navBar_h 64.f
+#define line_h 10.f
+
+#endif
+//${SRCROOT}/AlipayDemo/YTPrefixHeader.pch
