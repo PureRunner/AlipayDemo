@@ -16,6 +16,7 @@
  * 下拉刷新
  */
 - (void)refreshData:(BOOL)isRefresh;
+- (void)endRefreshing:(BOOL)endRefresh;
 
 - (void)clickAddPopMenuBar:(UIButton *)addButton;
 

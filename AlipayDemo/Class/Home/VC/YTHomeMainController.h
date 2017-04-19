@@ -17,8 +17,9 @@
 @interface YTHomeMainController :UIViewController  <YTHomeActionProtocol>
 
 
+@property (nonatomic ,assign) BOOL isRefreshing;
 @property (nonatomic ,strong) UITableView *tableView;
-@property  (nonatomic ,strong) UIScrollView *scrollView;
+@property (nonatomic ,strong) UIScrollView *scrollView;
 
 //上层导航
 @property (nonatomic ,strong) YTFirestNavBarView *firstNavBarView;

@@ -19,7 +19,6 @@ CGFloat const  headerView_h = 110.f;
     CGSize lastTableContentSize;
     BOOL isLayout;
     CGFloat lastOffset ;
-
 }
 
 @property  (nonatomic ,strong) UIView *navBarBackgroundView;
@@ -104,15 +103,16 @@ CGFloat const  headerView_h = 110.f;
     if ([object isEqual:self.tableView] && [keyPath isEqualToString:@"contentSize"]) {
         CGSize newSize = [[change objectForKey:NSKeyValueChangeNewKey] CGSizeValue];
         CGSize oldSize = [[change objectForKey:NSKeyValueChangeOldKey] CGSizeValue];
-//        NSLog(@"-- new:%f --old: %f:",newSize.height,oldSize.height);
+        NSLog(@"-- new:%f --old: %f:",newSize.height,oldSize.height);
         if (CGSizeEqualToSize(oldSize, newSize)) return;
         CGSize size = self.tableView.contentSize;
         CGFloat table_h = CGRectGetHeight(self.tableView.frame) + maxOffset;
         size = size.height > table_h ? size:CGSizeMake(CGRectGetWidth(self.tableView.frame), table_h);
         size.height = size.height + headerView_h ;
         self.scrollView.contentSize = size;
+        
         CGRect rect = self.tableView.frame;
-        rect.size.height = size.height;
+        rect.size.height = newSize.height;
         self.tableView.frame = rect;
         
     }
@@ -128,20 +128,25 @@ CGFloat const  headerView_h = 110.f;
 #pragma mark - UIScrollViewDelegate
 - (void)scrollViewWillBeginDecelerating:(UIScrollView *)scrollView {
     CGPoint point = scrollView.contentOffset;
-//    if (point.y < -70) {
-//        if (!self.loadingView.refreshing) {
-//            [self.loadingView beiginRefresh];
-//            if ([self respondsToSelector:@selector(refreshData:)]) {
-//                [self refreshData:self.loadingView.refreshing];
-//            }
-//        }
-//    }
-//    if (self.loadingView.refreshing) {
+    if (point.y < -60) {
+    
+        if ([self respondsToSelector:@selector(refreshData:)]) {
+            [scrollView setContentOffset:point animated:YES];
+
+            [self refreshData:YES];
+        }
+    }
+//    if (self.isRefreshing) {
 //        if (point.y < -maxOffset) {
 //            point.y = -maxOffset;
 //        }
 //        [scrollView setContentOffset:point animated:YES];
 //    }
+}
+- (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView {
+    if (self.isRefreshing && [self respondsToSelector:@selector(endRefreshing:)]) {
+        [self endRefreshing:YES];
+    }
 }
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
     CGFloat y = scrollView.contentOffset.y;
@@ -151,6 +156,7 @@ CGFloat const  headerView_h = 110.f;
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
     CGFloat y = scrollView.contentOffset.y;
     if (y < 0) {
+        
     }
     else if (y > 0 && (y < maxOffset || y == maxOffset)) {
         
@@ -213,8 +219,15 @@ CGFloat const  headerView_h = 110.f;
     if (!_tableView) {
         _tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
         _tableView.scrollEnabled = NO;
-        _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+        _tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
+        _tableView.separatorInset = UIEdgeInsetsMake(0, 5.f, 0.f, 5.f);
         _tableView.backgroundView.backgroundColor = [UIColor groupTableViewBackgroundColor];
+        UILabel *footLab  =[[UILabel alloc] initWithFrame:CGRectMake(0.f, 0.f, SCREEN_W, 50.f)];
+        footLab.text = @"最后数据";
+        footLab.textColor = [UIColor grayColor];
+        footLab.backgroundColor = [UIColor groupTableViewBackgroundColor];
+        footLab.textAlignment = NSTextAlignmentCenter;
+        _tableView.tableFooterView = footLab;
     }
     return _tableView;
 }
@@ -261,7 +274,6 @@ CGFloat const  headerView_h = 110.f;
         _headerView.backgroundColor = self.navBarColor;
         _headerView.contentView.backgroundColor = self.navBarColor;
         _headerView.lineView.backgroundColor = [UIColor groupTableViewBackgroundColor];
-        
     }
     return _headerView;
 }
