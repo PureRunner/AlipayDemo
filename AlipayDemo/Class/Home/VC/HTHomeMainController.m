@@ -6,15 +6,15 @@
 //  Copyright © 2017年 YT. All rights reserved.
 //
 
-#import "YTHomeController.h"
+#import "HTHomeMainController.h"
 
-@interface YTHomeController () <UITableViewDelegate ,UITableViewDataSource>
+@interface HTHomeMainController () <UITableViewDelegate ,UITableViewDataSource>
 
 @property (nonatomic ,strong) NSMutableArray *dataArray;
 
 @end
 
-@implementation YTHomeController
+@implementation HTHomeMainController
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:YES];
     self.navigationController.navigationBarHidden = YES;
@@ -25,32 +25,22 @@
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.view.backgroundColor = [UIColor groupTableViewBackgroundColor];
-//    __weak typeof(self) weakSelf = self;
-//    MJRefreshNormalHeader *headerRefresh = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
-//        static NSInteger page = 0;
-//        if (page < 3) {
-//            for (int i = 0; i < 3; i ++) {
-//                [weakSelf.dataArray addObject:@"00000"];
-//            }
-//        }
-//        page ++;
-//    }];
-//    self.tableView.mj_header = headerRefresh;
 
 }
+
+
+#pragma mark - YTHomeActionProtocol
+
 - (void)refreshData:(BOOL)isRefresh {
     static NSInteger page = 0;
     if (!self.isRefreshing && isRefresh) {
         self.isRefreshing = isRefresh;
-        if (page < 3) {
+        if (page < 5) {
             for (int i = 0; i < 2; i ++) {
                 [self.dataArray addObject:@"00000"];
             }
         }
         page ++;
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            [self.scrollView setContentOffset:CGPointZero animated:YES];
-        });
     }
     else {
         return;
@@ -59,8 +49,11 @@
 - (void)endRefreshing:(BOOL)endRefresh {
     if (endRefresh) {
         self.isRefreshing = NO;
-//        [self.tableView reloadData];
+        [self.tableView reloadData];
     }
+}
+- (void)whereToSelectAppModels:(id)obj selectIndex:(NSInteger)index {
+    NSLog(@"====== %ld",index);
 }
 
 #pragma mark - UITableViewDelegate && UITableViewDataSource
@@ -82,7 +75,9 @@
     return 80.f;
 }
 
-
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+}
 - (NSMutableArray *)dataArray {
     if (!_dataArray) {
         _dataArray  = [NSMutableArray arrayWithCapacity:2];
@@ -97,15 +92,5 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

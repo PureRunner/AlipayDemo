@@ -17,10 +17,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    
-    
-    
-    
+    self.view.backgroundColor = [UIColor redColor];
+    UIView *viw = [[UIView alloc]initWithFrame:self.view.bounds];
+    viw.backgroundColor = [UIColor grayColor];
+    [self.view addSubview:viw ];
 }
 
 

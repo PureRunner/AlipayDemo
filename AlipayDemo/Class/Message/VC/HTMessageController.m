@@ -6,7 +6,7 @@
 //  Copyright © 2017年 YT. All rights reserved.
 //
 
-#import "YTMessageController.h"
+#import "HTMessageController.h"
 
 #import "YTContactsFootView.h"
 #import "YTMsgListController.h"
@@ -19,7 +19,7 @@ CGFloat const section_h = 45.f;
 
 
 
-@interface YTMessageController ()<UITableViewDelegate ,UITableViewDataSource,YTContactsUsersProtocol>{
+@interface HTMessageController ()<UITableViewDelegate ,UITableViewDataSource,YTContactsUsersProtocol>{
     CGFloat maxOffset;
     CGFloat footView_h;
 }
@@ -36,7 +36,7 @@ CGFloat const section_h = 45.f;
 
 @end
 
-@implementation YTMessageController
+@implementation HTMessageController
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:YES];
     self.automaticallyAdjustsScrollViewInsets = NO;
@@ -67,7 +67,7 @@ CGFloat const section_h = 45.f;
 }
 - (void)switchMessageList:(UIButton *)swichButton {
     [self.tableView setContentOffset:CGPointZero animated:YES];
-    __weak YTMessageController *weafSelf = self;
+    __weak HTMessageController *weafSelf = self;
 
     for (UIButton *btn in self.swichButtonArray) {
         [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];

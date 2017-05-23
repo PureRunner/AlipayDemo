@@ -14,7 +14,7 @@
 @class YTLastNavBarView;
 @class YTFirestNavBarView;
 
-@interface YTHomeMainController :UIViewController  <YTHomeActionProtocol>
+@interface YTHomeBaseController :UIViewController  <YTHomeActionProtocol>
 
 
 @property (nonatomic ,assign) BOOL isRefreshing;

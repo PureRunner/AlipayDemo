@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface YTMessageController : UIViewController
+@interface HTMessageController : UIViewController
 
 @end

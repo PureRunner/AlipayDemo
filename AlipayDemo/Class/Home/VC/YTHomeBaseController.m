@@ -7,14 +7,14 @@
 //
 
 
-#import "YTHomeMainController.h"
+#import "YTHomeBaseController.h"
 #import "YTHomeHeaderView.h"
 //#import "YTLoadingView.h"
 
 
 CGFloat const  headerView_h = 110.f;
 
-@interface YTHomeMainController () <UIScrollViewDelegate> {
+@interface YTHomeBaseController () <UIScrollViewDelegate> {
     CGFloat maxOffset ;
     CGSize lastTableContentSize;
     BOOL isLayout;
@@ -26,7 +26,7 @@ CGFloat const  headerView_h = 110.f;
 @end
 
 
-@implementation YTHomeMainController
+@implementation YTHomeBaseController
 
 
 #pragma mark - Public Method
@@ -95,7 +95,7 @@ CGFloat const  headerView_h = 110.f;
     
 }
 
-
+#pragma mark - tableView KVO
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context{
     if ([[change objectForKey:NSKeyValueChangeKindKey] integerValue] != 1)
         return;
@@ -106,15 +106,19 @@ CGFloat const  headerView_h = 110.f;
         NSLog(@"-- new:%f --old: %f:",newSize.height,oldSize.height);
         if (CGSizeEqualToSize(oldSize, newSize)) return;
         CGSize size = self.tableView.contentSize;
-        CGFloat table_h = CGRectGetHeight(self.tableView.frame) + maxOffset;
-        size = size.height > table_h ? size:CGSizeMake(CGRectGetWidth(self.tableView.frame), table_h);
-        size.height = size.height + headerView_h ;
+//        CGFloat table_h = CGRectGetHeight(self.tableView.frame) + maxOffset;
+//        size = size.height > table_h ? size:CGSizeMake(CGRectGetWidth(self.tableView.frame), table_h);
+//        size.height = size.height + headerView_h ;
+        if (size.height < CGRectGetHeight(self.scrollView.frame)) {
+            size.height = CGRectGetHeight(self.scrollView.frame) + headerView_h;
+        }else{
+            size.height = size.height + navBar_h;
+ 
+        }
         self.scrollView.contentSize = size;
-        
         CGRect rect = self.tableView.frame;
         rect.size.height = newSize.height;
         self.tableView.frame = rect;
-        
     }
 }
 
@@ -126,22 +130,20 @@ CGFloat const  headerView_h = 110.f;
 }
 
 #pragma mark - UIScrollViewDelegate
+
 - (void)scrollViewWillBeginDecelerating:(UIScrollView *)scrollView {
     CGPoint point = scrollView.contentOffset;
     if (point.y < -60) {
     
         if ([self respondsToSelector:@selector(refreshData:)]) {
             [scrollView setContentOffset:point animated:YES];
-
             [self refreshData:YES];
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                [self.scrollView setContentOffset:CGPointZero animated:YES];
+            });
         }
     }
-//    if (self.isRefreshing) {
-//        if (point.y < -maxOffset) {
-//            point.y = -maxOffset;
-//        }
-//        [scrollView setContentOffset:point animated:YES];
-//    }
+
 }
 - (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView {
     if (self.isRefreshing && [self respondsToSelector:@selector(endRefreshing:)]) {
@@ -151,31 +153,35 @@ CGFloat const  headerView_h = 110.f;
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
     CGFloat y = scrollView.contentOffset.y;
     lastOffset = y;
-    
 }
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
     CGFloat y = scrollView.contentOffset.y;
     if (y < 0) {
-        
+       
     }
-    else if (y > 0 && (y < maxOffset || y == maxOffset)) {
-        
+    else if (y > 0 && y < headerView_h +1.f ) {//&& (y < maxOffset || y == maxOffset)
         [self scrollViewContentOffset:scrollView];
     }
     else{
 
     }
 }
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     CGFloat y = scrollView.contentOffset.y;
 //    self.loadingView.hidden = y < 0 ? NO : YES;
-//    NSLog(@"aaaaa %f",y);
-    if (y < 0 ) {
+    if (y < 0 || y==0 ) {
         CGRect rect = self.headerView.frame;
         rect.origin.y = y;
         self.headerView.frame = rect;
     }
     CGFloat alpha = (1 - y/maxOffset*2.5 ) > 0 ? (1 - y/maxOffset*2.5 ) : 0;
+    
+    if (alpha < 0.f) {
+        alpha = 0.f;
+    }
+    else if (alpha > 1.f) {
+        alpha = 1.f;
+    }
     self.headerView.headerAlpha = alpha;
 //    NSLog(@"----111 :%f----: %f",y/maxOffset,alpha);
     if (alpha > 0.5) {
@@ -183,6 +189,7 @@ CGFloat const  headerView_h = 110.f;
         self.firstNavBarView.alpha = newAlpha;
         self.lastNavBarView.alpha = 0;
     } else {
+
         float newAlpha =  alpha*2;
         self.firstNavBarView.alpha = 0;
         self.lastNavBarView.alpha = 1 - newAlpha;
@@ -191,8 +198,7 @@ CGFloat const  headerView_h = 110.f;
 }
 - (void)scrollViewContentOffset:(UIScrollView *)scrollView{
     CGFloat y = scrollView.contentOffset.y;
-    NSLog(@"---:%f--last-:%f",y,lastOffset);
-
+//    NSLog(@"---:%f--last-:%f",y,lastOffset);
     if (lastOffset < y) {
         //上滑
         if (y > 20.f) {

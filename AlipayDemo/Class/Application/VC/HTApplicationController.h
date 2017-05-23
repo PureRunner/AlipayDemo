@@ -1,5 +1,5 @@
 //
-//  YTHomeController.h
+//  YTApplicationController.h
 //  AlipayDemo
 //
 //  Created by shuai pan on 2017/4/16.
@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "YTHomeMainController.h"
 
-@interface YTHomeController : YTHomeMainController
+@interface HTApplicationController : UIViewController
+
 @end
+

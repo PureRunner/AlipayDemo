@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="UOq-tu-yNS">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="UOq-tu-yNS">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -29,7 +29,7 @@
         <!--Item 2-->
         <scene sceneID="WCq-u8-6pU">
             <objects>
-                <viewController id="gKA-mX-1di" customClass="YTApplicationController" sceneMemberID="viewController">
+                <viewController id="gKA-mX-1di" customClass="HTApplicationController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="D7x-l9-ge3"/>
                         <viewControllerLayoutGuide type="bottom" id="JaN-f0-ch8"/>
@@ -83,7 +83,7 @@
         <!--Message Controller-->
         <scene sceneID="GUo-gk-LYi">
             <objects>
-                <viewController id="Q0c-dk-Is0" customClass="YTMessageController" sceneMemberID="viewController">
+                <viewController id="Q0c-dk-Is0" customClass="HTMessageController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="wNV-Ne-aLX"/>
                         <viewControllerLayoutGuide type="bottom" id="TUz-nN-Tok"/>
@@ -121,7 +121,7 @@
         <!--首页-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController title="首页" id="BYZ-38-t0r" customClass="YTHomeController" sceneMemberID="viewController">
+                <viewController title="首页" id="BYZ-38-t0r" customClass="HTHomeMainController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>

@@ -8,15 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		237AD5C266E40B4BA3401D9C /* libPods-AlipayDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7843CA3B55194315031C976D /* libPods-AlipayDemo.a */; };
+		542147FF1EA8D2B500B1461A /* HttpManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 542147FE1EA8D2B500B1461A /* HttpManager.m */; };
+		545A91011EAF344700FC2912 /* edit_norml.png in Resources */ = {isa = PBXBuildFile; fileRef = 545A91001EAF344700FC2912 /* edit_norml.png */; };
 		6F63D9401EA5D8DC00B4AF23 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F85859C1E9F60AA0072D840 /* AppDelegate.m */; };
-		6F63D9C11EA5E21B00B4AF23 /* YTApplicationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F63D99F1EA5E21B00B4AF23 /* YTApplicationController.m */; };
+		6F63D9C11EA5E21B00B4AF23 /* HTApplicationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F63D99F1EA5E21B00B4AF23 /* HTApplicationController.m */; };
 		6F63D9C21EA5E21B00B4AF23 /* MyApplicationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F63D9A21EA5E21B00B4AF23 /* MyApplicationView.m */; };
 		6F63D9C31EA5E21B00B4AF23 /* YTModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F63D9A61EA5E21B00B4AF23 /* YTModel.m */; };
-		6F63D9C41EA5E21B00B4AF23 /* YTHomeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F63D9AB1EA5E21B00B4AF23 /* YTHomeController.m */; };
-		6F63D9C51EA5E21C00B4AF23 /* YTHomeMainController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F63D9AD1EA5E21B00B4AF23 /* YTHomeMainController.m */; };
+		6F63D9C41EA5E21B00B4AF23 /* HTHomeMainController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F63D9AB1EA5E21B00B4AF23 /* HTHomeMainController.m */; };
+		6F63D9C51EA5E21C00B4AF23 /* YTHomeBaseController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F63D9AD1EA5E21B00B4AF23 /* YTHomeBaseController.m */; };
 		6F63D9C61EA5E21C00B4AF23 /* YTHomeHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F63D9B01EA5E21B00B4AF23 /* YTHomeHeaderView.m */; };
 		6F63D9C71EA5E21C00B4AF23 /* YTContacterController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F63D9B41EA5E21B00B4AF23 /* YTContacterController.m */; };
-		6F63D9C81EA5E21C00B4AF23 /* YTMessageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F63D9B71EA5E21B00B4AF23 /* YTMessageController.m */; };
+		6F63D9C81EA5E21C00B4AF23 /* HTMessageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F63D9B71EA5E21B00B4AF23 /* HTMessageController.m */; };
 		6F63D9C91EA5E21C00B4AF23 /* YTMsgListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F63D9B91EA5E21B00B4AF23 /* YTMsgListController.m */; };
 		6F63D9CA1EA5E21C00B4AF23 /* YTContactsFootView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F63D9BC1EA5E21B00B4AF23 /* YTContactsFootView.m */; };
 		6F63D9CB1EA5E21C00B4AF23 /* HexColors.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F63D9C01EA5E21B00B4AF23 /* HexColors.m */; };
@@ -29,25 +31,28 @@
 
 /* Begin PBXFileReference section */
 		293A1EFCD3D4C588041F8492 /* Pods-AlipayDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AlipayDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-AlipayDemo/Pods-AlipayDemo.release.xcconfig"; sourceTree = "<group>"; };
+		542147FD1EA8D2B500B1461A /* HttpManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpManager.h; sourceTree = "<group>"; };
+		542147FE1EA8D2B500B1461A /* HttpManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpManager.m; sourceTree = "<group>"; };
+		545A91001EAF344700FC2912 /* edit_norml.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = edit_norml.png; sourceTree = "<group>"; };
 		6F63D9041EA5BCDC00B4AF23 /* YTPrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YTPrefixHeader.pch; sourceTree = "<group>"; };
-		6F63D99E1EA5E21B00B4AF23 /* YTApplicationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YTApplicationController.h; sourceTree = "<group>"; };
-		6F63D99F1EA5E21B00B4AF23 /* YTApplicationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YTApplicationController.m; sourceTree = "<group>"; };
+		6F63D99E1EA5E21B00B4AF23 /* HTApplicationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTApplicationController.h; sourceTree = "<group>"; };
+		6F63D99F1EA5E21B00B4AF23 /* HTApplicationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTApplicationController.m; sourceTree = "<group>"; };
 		6F63D9A11EA5E21B00B4AF23 /* MyApplicationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyApplicationView.h; sourceTree = "<group>"; };
 		6F63D9A21EA5E21B00B4AF23 /* MyApplicationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyApplicationView.m; sourceTree = "<group>"; };
 		6F63D9A51EA5E21B00B4AF23 /* YTModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YTModel.h; sourceTree = "<group>"; };
 		6F63D9A61EA5E21B00B4AF23 /* YTModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YTModel.m; sourceTree = "<group>"; };
 		6F63D9A91EA5E21B00B4AF23 /* YTHomeActionProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YTHomeActionProtocol.h; sourceTree = "<group>"; };
-		6F63D9AA1EA5E21B00B4AF23 /* YTHomeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YTHomeController.h; sourceTree = "<group>"; };
-		6F63D9AB1EA5E21B00B4AF23 /* YTHomeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YTHomeController.m; sourceTree = "<group>"; };
-		6F63D9AC1EA5E21B00B4AF23 /* YTHomeMainController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YTHomeMainController.h; sourceTree = "<group>"; };
-		6F63D9AD1EA5E21B00B4AF23 /* YTHomeMainController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YTHomeMainController.m; sourceTree = "<group>"; };
+		6F63D9AA1EA5E21B00B4AF23 /* HTHomeMainController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTHomeMainController.h; sourceTree = "<group>"; };
+		6F63D9AB1EA5E21B00B4AF23 /* HTHomeMainController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTHomeMainController.m; sourceTree = "<group>"; };
+		6F63D9AC1EA5E21B00B4AF23 /* YTHomeBaseController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YTHomeBaseController.h; sourceTree = "<group>"; };
+		6F63D9AD1EA5E21B00B4AF23 /* YTHomeBaseController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YTHomeBaseController.m; sourceTree = "<group>"; };
 		6F63D9AF1EA5E21B00B4AF23 /* YTHomeHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YTHomeHeaderView.h; sourceTree = "<group>"; };
 		6F63D9B01EA5E21B00B4AF23 /* YTHomeHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YTHomeHeaderView.m; sourceTree = "<group>"; };
 		6F63D9B31EA5E21B00B4AF23 /* YTContacterController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YTContacterController.h; sourceTree = "<group>"; };
 		6F63D9B41EA5E21B00B4AF23 /* YTContacterController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YTContacterController.m; sourceTree = "<group>"; };
 		6F63D9B51EA5E21B00B4AF23 /* YTContactsUsersProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YTContactsUsersProtocol.h; sourceTree = "<group>"; };
-		6F63D9B61EA5E21B00B4AF23 /* YTMessageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YTMessageController.h; sourceTree = "<group>"; };
-		6F63D9B71EA5E21B00B4AF23 /* YTMessageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YTMessageController.m; sourceTree = "<group>"; };
+		6F63D9B61EA5E21B00B4AF23 /* HTMessageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTMessageController.h; sourceTree = "<group>"; };
+		6F63D9B71EA5E21B00B4AF23 /* HTMessageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTMessageController.m; sourceTree = "<group>"; };
 		6F63D9B81EA5E21B00B4AF23 /* YTMsgListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YTMsgListController.h; sourceTree = "<group>"; };
 		6F63D9B91EA5E21B00B4AF23 /* YTMsgListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YTMsgListController.m; sourceTree = "<group>"; };
 		6F63D9BB1EA5E21B00B4AF23 /* YTContactsFootView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YTContactsFootView.h; sourceTree = "<group>"; };
@@ -89,11 +94,40 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		545A90FF1EAF344700FC2912 /* resource */ = {
+			isa = PBXGroup;
+			children = (
+				545A91001EAF344700FC2912 /* edit_norml.png */,
+			);
+			path = resource;
+			sourceTree = "<group>";
+		};
+		545A918D1EAF5C4E00FC2912 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		547E996F1EC022AD00161792 /* config */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = config;
+			sourceTree = "<group>";
+		};
+		547E997C1EC06CED00161792 /* VC */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = VC;
+			sourceTree = "<group>";
+		};
 		6F63D99B1EA5E21B00B4AF23 /* Class */ = {
 			isa = PBXGroup;
 			children = (
-				6F63D99C1EA5E21B00B4AF23 /* Application */,
 				6F63D9A31EA5E21B00B4AF23 /* BaseClass */,
+				6F63D99C1EA5E21B00B4AF23 /* Application */,
 				6F63D9A71EA5E21B00B4AF23 /* Home */,
 				6F63D9B11EA5E21B00B4AF23 /* Message */,
 				6F63D9BD1EA5E21B00B4AF23 /* Ventor */,
@@ -104,6 +138,7 @@
 		6F63D99C1EA5E21B00B4AF23 /* Application */ = {
 			isa = PBXGroup;
 			children = (
+				545A90FF1EAF344700FC2912 /* resource */,
 				6F63D99D1EA5E21B00B4AF23 /* VC */,
 				6F63D9A01EA5E21B00B4AF23 /* View */,
 			);
@@ -113,8 +148,8 @@
 		6F63D99D1EA5E21B00B4AF23 /* VC */ = {
 			isa = PBXGroup;
 			children = (
-				6F63D99E1EA5E21B00B4AF23 /* YTApplicationController.h */,
-				6F63D99F1EA5E21B00B4AF23 /* YTApplicationController.m */,
+				6F63D99E1EA5E21B00B4AF23 /* HTApplicationController.h */,
+				6F63D99F1EA5E21B00B4AF23 /* HTApplicationController.m */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -131,6 +166,9 @@
 		6F63D9A31EA5E21B00B4AF23 /* BaseClass */ = {
 			isa = PBXGroup;
 			children = (
+				547E997C1EC06CED00161792 /* VC */,
+				547E996F1EC022AD00161792 /* config */,
+				545A918D1EAF5C4E00FC2912 /* View */,
 				6F63D9A41EA5E21B00B4AF23 /* Model */,
 			);
 			path = BaseClass;
@@ -141,6 +179,8 @@
 			children = (
 				6F63D9A51EA5E21B00B4AF23 /* YTModel.h */,
 				6F63D9A61EA5E21B00B4AF23 /* YTModel.m */,
+				542147FD1EA8D2B500B1461A /* HttpManager.h */,
+				542147FE1EA8D2B500B1461A /* HttpManager.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -158,10 +198,10 @@
 			isa = PBXGroup;
 			children = (
 				6F63D9A91EA5E21B00B4AF23 /* YTHomeActionProtocol.h */,
-				6F63D9AA1EA5E21B00B4AF23 /* YTHomeController.h */,
-				6F63D9AB1EA5E21B00B4AF23 /* YTHomeController.m */,
-				6F63D9AC1EA5E21B00B4AF23 /* YTHomeMainController.h */,
-				6F63D9AD1EA5E21B00B4AF23 /* YTHomeMainController.m */,
+				6F63D9AC1EA5E21B00B4AF23 /* YTHomeBaseController.h */,
+				6F63D9AD1EA5E21B00B4AF23 /* YTHomeBaseController.m */,
+				6F63D9AA1EA5E21B00B4AF23 /* HTHomeMainController.h */,
+				6F63D9AB1EA5E21B00B4AF23 /* HTHomeMainController.m */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -187,8 +227,8 @@
 		6F63D9B21EA5E21B00B4AF23 /* VC */ = {
 			isa = PBXGroup;
 			children = (
-				6F63D9B61EA5E21B00B4AF23 /* YTMessageController.h */,
-				6F63D9B71EA5E21B00B4AF23 /* YTMessageController.m */,
+				6F63D9B61EA5E21B00B4AF23 /* HTMessageController.h */,
+				6F63D9B71EA5E21B00B4AF23 /* HTMessageController.m */,
 				6F63D9B31EA5E21B00B4AF23 /* YTContacterController.h */,
 				6F63D9B41EA5E21B00B4AF23 /* YTContacterController.m */,
 				6F63D9B51EA5E21B00B4AF23 /* YTContactsUsersProtocol.h */,
@@ -305,13 +345,13 @@
 		6F85858D1E9F60AA0072D840 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = HT;
 				LastUpgradeCheck = 0830;
-				ORGANIZATIONNAME = YT;
+				ORGANIZATIONNAME = foreveross;
 				TargetAttributes = {
 					6F8585941E9F60AA0072D840 = {
 						CreatedOnToolsVersion = 8.3.1;
-						DevelopmentTeam = QLD6CAGKDK;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 				};
 			};
@@ -340,6 +380,7 @@
 			files = (
 				6F8585A81E9F60AA0072D840 /* LaunchScreen.storyboard in Resources */,
 				6F8585A51E9F60AA0072D840 /* Assets.xcassets in Resources */,
+				545A91011EAF344700FC2912 /* edit_norml.png in Resources */,
 				6F8585A31E9F60AA0072D840 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -399,14 +440,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6F63D9C51EA5E21C00B4AF23 /* YTHomeMainController.m in Sources */,
+				6F63D9C51EA5E21C00B4AF23 /* YTHomeBaseController.m in Sources */,
 				6F63D9CB1EA5E21C00B4AF23 /* HexColors.m in Sources */,
 				6F63D9CA1EA5E21C00B4AF23 /* YTContactsFootView.m in Sources */,
+				542147FF1EA8D2B500B1461A /* HttpManager.m in Sources */,
 				6F8585A01E9F60AA0072D840 /* ViewController.m in Sources */,
-				6F63D9C11EA5E21B00B4AF23 /* YTApplicationController.m in Sources */,
+				6F63D9C11EA5E21B00B4AF23 /* HTApplicationController.m in Sources */,
 				6F63D9C61EA5E21C00B4AF23 /* YTHomeHeaderView.m in Sources */,
-				6F63D9C81EA5E21C00B4AF23 /* YTMessageController.m in Sources */,
-				6F63D9C41EA5E21B00B4AF23 /* YTHomeController.m in Sources */,
+				6F63D9C81EA5E21C00B4AF23 /* HTMessageController.m in Sources */,
+				6F63D9C41EA5E21B00B4AF23 /* HTHomeMainController.m in Sources */,
 				6F63D9C31EA5E21B00B4AF23 /* YTModel.m in Sources */,
 				6F85859A1E9F60AA0072D840 /* main.m in Sources */,
 				6F63D9C91EA5E21C00B4AF23 /* YTMsgListController.m in Sources */,
@@ -533,7 +575,7 @@
 			baseConfigurationReference = DA275ED3E6CB8A3E9CC65630 /* Pods-AlipayDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = QLD6CAGKDK;
+				DEVELOPMENT_TEAM = "";
 				GCC_PREFIX_HEADER = "${SRCROOT}/AlipayDemo/YTPrefixHeader.pch";
 				INFOPLIST_FILE = AlipayDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -548,6 +590,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = yutong.AlipayDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Debug;
 		};
@@ -556,7 +599,7 @@
 			baseConfigurationReference = 293A1EFCD3D4C588041F8492 /* Pods-AlipayDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = QLD6CAGKDK;
+				DEVELOPMENT_TEAM = "";
 				GCC_PREFIX_HEADER = "${SRCROOT}/AlipayDemo/YTPrefixHeader.pch";
 				INFOPLIST_FILE = AlipayDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -571,6 +614,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = yutong.AlipayDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Release;
 		};
