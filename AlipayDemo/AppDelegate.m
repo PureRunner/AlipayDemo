@@ -7,11 +7,7 @@
 //
 
 #import "AppDelegate.h"
-//#import "ViewController.h"
-//#import "HTabBarController.h"
-//#import "YTApplicationController.h"
-//#import "YTMessageController.h"
-//#import "YTHomeMainController.h"
+
 
 
 @interface AppDelegate ()
@@ -22,22 +18,7 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-//    self.window  =[[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-//    self.window.backgroundColor = [UIColor whiteColor];
-//    [self.window makeKeyAndVisible];
-//    
-//    
-//    HTabBarController *tabBar = [[HTabBarController alloc] init];
-//    
-//    YTApplicationController *app = [[YTApplicationController alloc] init];
-//    YTHomeMainController *main = [[YTHomeMainController alloc] init];
-//    YTMessageController *message = [[YTMessageController alloc] init];
-//    ViewController *vc = [[ViewController alloc] init];
-//
-//    
-//    tabBar.controllers = @[main,message,app,vc];
-//
-//    self.window.rootViewController = tabBar;
+
     
 
     return YES;

@@ -103,7 +103,7 @@ CGFloat const  headerView_h = 110.f;
     if ([object isEqual:self.tableView] && [keyPath isEqualToString:@"contentSize"]) {
         CGSize newSize = [[change objectForKey:NSKeyValueChangeNewKey] CGSizeValue];
         CGSize oldSize = [[change objectForKey:NSKeyValueChangeOldKey] CGSizeValue];
-        NSLog(@"-- new:%f --old: %f:",newSize.height,oldSize.height);
+//        NSLog(@"-- new:%f --old: %f:",newSize.height,oldSize.height);
         if (CGSizeEqualToSize(oldSize, newSize)) return;
         CGSize size = self.tableView.contentSize;
 //        CGFloat table_h = CGRectGetHeight(self.tableView.frame) + maxOffset;
@@ -133,7 +133,7 @@ CGFloat const  headerView_h = 110.f;
 
 - (void)scrollViewWillBeginDecelerating:(UIScrollView *)scrollView {
     CGPoint point = scrollView.contentOffset;
-    if (point.y < -60) {
+    if (point.y < -80) {
     
         if ([self respondsToSelector:@selector(refreshData:)]) {
             [scrollView setContentOffset:point animated:YES];
@@ -196,6 +196,7 @@ CGFloat const  headerView_h = 110.f;
     }
 
 }
+//偏移处理
 - (void)scrollViewContentOffset:(UIScrollView *)scrollView{
     CGFloat y = scrollView.contentOffset.y;
 //    NSLog(@"---:%f--last-:%f",y,lastOffset);

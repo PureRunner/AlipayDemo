@@ -46,9 +46,8 @@
     circle.layer.masksToBounds = YES;
     [self.view addSubview:circle];
     
-//    UIView *item  =[[UIView alloc] initWithFrame:CGRectMake(0, 350.f, SCREEN_W, 44.f)];
-//    item.backgroundColor  =[UIColor orangeColor];
-//    [self.view addSubview: item];
+
+
     
 }
 
