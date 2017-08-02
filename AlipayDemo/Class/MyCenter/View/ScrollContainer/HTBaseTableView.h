@@ -8,13 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface HTBaseView : UIView
+@interface HTBaseTableView : UIView
 
 @property (nonatomic ,strong) UITableView *tableView;
+
 @property (nonatomic ,assign) CGSize tableHeaderSize;
-
-@property (nonatomic ,strong) NSMutableArray *dataArray;
-
 
 - (void)baseConfigurateInfo ;
 

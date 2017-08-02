@@ -13,12 +13,11 @@
 		541AB65C1EF22189002EBB36 /* ClientRequestManger.m in Sources */ = {isa = PBXBuildFile; fileRef = 541AB6541EF22189002EBB36 /* ClientRequestManger.m */; };
 		541AB65D1EF22189002EBB36 /* NSJSONSerialization+BSLJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 541AB6571EF22189002EBB36 /* NSJSONSerialization+BSLJSON.m */; };
 		541AB65E1EF22189002EBB36 /* NSString+ClientDownload.m in Sources */ = {isa = PBXBuildFile; fileRef = 541AB6591EF22189002EBB36 /* NSString+ClientDownload.m */; };
-		541E865D1ED7F1C70059E5DC /* HTAssetsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 541E86561ED7F1C70059E5DC /* HTAssetsView.m */; };
-		541E865E1ED7F1C70059E5DC /* HTBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 541E86581ED7F1C70059E5DC /* HTBaseView.m */; };
+		541E865E1ED7F1C70059E5DC /* HTBaseTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 541E86581ED7F1C70059E5DC /* HTBaseTableView.m */; };
 		541E865F1ED7F1C70059E5DC /* HTContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 541E865A1ED7F1C70059E5DC /* HTContainerView.m */; };
-		541E86601ED7F1C70059E5DC /* HTSetView.m in Sources */ = {isa = PBXBuildFile; fileRef = 541E865C1ED7F1C70059E5DC /* HTSetView.m */; };
 		541E86631ED7FE3E0059E5DC /* HTMyCenterHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 541E86621ED7FE3E0059E5DC /* HTMyCenterHeader.m */; };
 		542147FF1EA8D2B500B1461A /* HttpManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 542147FE1EA8D2B500B1461A /* HttpManager.m */; };
+		5424E2111F31825C00900D37 /* HTMyCenterTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5424E2101F31825C00900D37 /* HTMyCenterTableView.m */; };
 		545A91011EAF344700FC2912 /* edit_norml.png in Resources */ = {isa = PBXBuildFile; fileRef = 545A91001EAF344700FC2912 /* edit_norml.png */; };
 		54FE23E61ED6B591009AA82D /* HTMyCenterController.m in Sources */ = {isa = PBXBuildFile; fileRef = 54FE23E51ED6B591009AA82D /* HTMyCenterController.m */; };
 		6F63D9401EA5D8DC00B4AF23 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F85859C1E9F60AA0072D840 /* AppDelegate.m */; };
@@ -49,19 +48,17 @@
 		541AB6571EF22189002EBB36 /* NSJSONSerialization+BSLJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSJSONSerialization+BSLJSON.m"; sourceTree = "<group>"; };
 		541AB6581EF22189002EBB36 /* NSString+ClientDownload.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+ClientDownload.h"; sourceTree = "<group>"; };
 		541AB6591EF22189002EBB36 /* NSString+ClientDownload.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+ClientDownload.m"; sourceTree = "<group>"; };
-		541E86551ED7F1C70059E5DC /* HTAssetsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTAssetsView.h; sourceTree = "<group>"; };
-		541E86561ED7F1C70059E5DC /* HTAssetsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTAssetsView.m; sourceTree = "<group>"; };
-		541E86571ED7F1C70059E5DC /* HTBaseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTBaseView.h; sourceTree = "<group>"; };
-		541E86581ED7F1C70059E5DC /* HTBaseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTBaseView.m; sourceTree = "<group>"; };
+		541E86571ED7F1C70059E5DC /* HTBaseTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTBaseTableView.h; sourceTree = "<group>"; };
+		541E86581ED7F1C70059E5DC /* HTBaseTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTBaseTableView.m; sourceTree = "<group>"; };
 		541E86591ED7F1C70059E5DC /* HTContainerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTContainerView.h; sourceTree = "<group>"; };
 		541E865A1ED7F1C70059E5DC /* HTContainerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTContainerView.m; sourceTree = "<group>"; };
-		541E865B1ED7F1C70059E5DC /* HTSetView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTSetView.h; sourceTree = "<group>"; };
-		541E865C1ED7F1C70059E5DC /* HTSetView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTSetView.m; sourceTree = "<group>"; };
 		541E86611ED7FE3E0059E5DC /* HTMyCenterHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTMyCenterHeader.h; sourceTree = "<group>"; };
 		541E86621ED7FE3E0059E5DC /* HTMyCenterHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTMyCenterHeader.m; sourceTree = "<group>"; };
 		541E86641ED8138A0059E5DC /* HTScrollProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTScrollProtocol.h; sourceTree = "<group>"; };
 		542147FD1EA8D2B500B1461A /* HttpManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpManager.h; sourceTree = "<group>"; };
 		542147FE1EA8D2B500B1461A /* HttpManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpManager.m; sourceTree = "<group>"; };
+		5424E20F1F31825C00900D37 /* HTMyCenterTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTMyCenterTableView.h; sourceTree = "<group>"; };
+		5424E2101F31825C00900D37 /* HTMyCenterTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTMyCenterTableView.m; sourceTree = "<group>"; };
 		545A91001EAF344700FC2912 /* edit_norml.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = edit_norml.png; sourceTree = "<group>"; };
 		54FE23E41ED6B591009AA82D /* HTMyCenterController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTMyCenterController.h; sourceTree = "<group>"; };
 		54FE23E51ED6B591009AA82D /* HTMyCenterController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTMyCenterController.m; sourceTree = "<group>"; };
@@ -167,12 +164,10 @@
 			children = (
 				541E86591ED7F1C70059E5DC /* HTContainerView.h */,
 				541E865A1ED7F1C70059E5DC /* HTContainerView.m */,
-				541E86571ED7F1C70059E5DC /* HTBaseView.h */,
-				541E86581ED7F1C70059E5DC /* HTBaseView.m */,
-				541E86551ED7F1C70059E5DC /* HTAssetsView.h */,
-				541E86561ED7F1C70059E5DC /* HTAssetsView.m */,
-				541E865B1ED7F1C70059E5DC /* HTSetView.h */,
-				541E865C1ED7F1C70059E5DC /* HTSetView.m */,
+				541E86571ED7F1C70059E5DC /* HTBaseTableView.h */,
+				541E86581ED7F1C70059E5DC /* HTBaseTableView.m */,
+				5424E20F1F31825C00900D37 /* HTMyCenterTableView.h */,
+				5424E2101F31825C00900D37 /* HTMyCenterTableView.m */,
 			);
 			path = ScrollContainer;
 			sourceTree = "<group>";
@@ -551,14 +546,14 @@
 				541AB65E1EF22189002EBB36 /* NSString+ClientDownload.m in Sources */,
 				541AB65B1EF22189002EBB36 /* ClientDownloadManager.m in Sources */,
 				6F63D9C11EA5E21B00B4AF23 /* HTApplicationController.m in Sources */,
+				5424E2111F31825C00900D37 /* HTMyCenterTableView.m in Sources */,
 				6F63D9C61EA5E21C00B4AF23 /* YTHomeHeaderView.m in Sources */,
 				541E865F1ED7F1C70059E5DC /* HTContainerView.m in Sources */,
 				541E86631ED7FE3E0059E5DC /* HTMyCenterHeader.m in Sources */,
 				6F63D9C81EA5E21C00B4AF23 /* HTMessageController.m in Sources */,
 				54FE23E61ED6B591009AA82D /* HTMyCenterController.m in Sources */,
 				6F63D9C41EA5E21B00B4AF23 /* HTHomeMainController.m in Sources */,
-				541E865D1ED7F1C70059E5DC /* HTAssetsView.m in Sources */,
-				541E865E1ED7F1C70059E5DC /* HTBaseView.m in Sources */,
+				541E865E1ED7F1C70059E5DC /* HTBaseTableView.m in Sources */,
 				6F63D9C31EA5E21B00B4AF23 /* YTModel.m in Sources */,
 				6F85859A1E9F60AA0072D840 /* main.m in Sources */,
 				6F63D9401EA5D8DC00B4AF23 /* AppDelegate.m in Sources */,
@@ -566,7 +561,6 @@
 				541AB65C1EF22189002EBB36 /* ClientRequestManger.m in Sources */,
 				541AB65A1EF22189002EBB36 /* APIServiceUrl.m in Sources */,
 				6F63D9C21EA5E21B00B4AF23 /* MyApplicationView.m in Sources */,
-				541E86601ED7F1C70059E5DC /* HTSetView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

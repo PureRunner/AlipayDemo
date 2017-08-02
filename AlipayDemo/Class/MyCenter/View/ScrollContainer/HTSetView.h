@@ -10,7 +10,6 @@
 
 @interface HTSetView : HTBaseView
 
-@property (nonatomic ,assign) id <HTScrollProtocol> delegate;
 
 
 @end

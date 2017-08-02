@@ -40,27 +40,11 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 60.f;
 }
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    if (self.delegate && [self.delegate respondsToSelector:@selector(scrollViewDidScroll:)]) {
-        [self.delegate scrollViewDidScroll:scrollView];
-    }
-}
-- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
-    if (self.delegate && [self.delegate respondsToSelector:@selector(scrollViewWillBeginDragging:)]) {
-        [self.delegate scrollViewWillBeginDragging:scrollView];
-    }
-}
-- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
-    if (self.delegate && [self.delegate respondsToSelector:@selector(scrollViewDidEndDecelerating:)]) {
-        [self.delegate scrollViewDidEndDecelerating:scrollView];
-    }
-}
-- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
-    if (self.delegate && [self.delegate respondsToSelector:@selector(scrollViewDidEndDragging:willDecelerate:)]) {
-        [self.delegate scrollViewDidEndDragging:scrollView willDecelerate:YES];
-    }
-    
-}
+
+
+
+
+
 //#pragma mark - data
 //- (NSMutableArray *)dataArray{
 //    if (!_dataArray) {

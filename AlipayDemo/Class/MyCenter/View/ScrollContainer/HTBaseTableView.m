@@ -6,13 +6,13 @@
 //  Copyright © 2017年 foreveross. All rights reserved.
 //
 
-#import "HTBaseView.h"
+#import "HTBaseTableView.h"
 
-@interface HTBaseView  ()
+@interface HTBaseTableView  ()
 
 @end
 
-@implementation HTBaseView
+@implementation HTBaseTableView
 
 
 - (id)initWithFrame:(CGRect)frame{
@@ -52,6 +52,7 @@
 
 
 
+
 #pragma mark - UI
 
 
@@ -69,15 +70,6 @@
     return _tableView;
 }
 
-- (NSMutableArray *)dataArray{
-    if (!_dataArray) {
-        _dataArray  = [NSMutableArray arrayWithCapacity:2];
-        for (int i = 1; i < 5; i ++) {
-            [_dataArray addObject:@"默认展示数据："];
-        }
-    }
-    return _dataArray;
 
-}
 
 @end

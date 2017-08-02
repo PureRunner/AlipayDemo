@@ -7,15 +7,15 @@
 //
 
 #import "HTContainerView.h"
-#import "HTBaseView.h"
+#import "HTMyCenterTableView.h"
 
-
+#define marginTop 5.f
 
 @interface HTContainerView ()<UIScrollViewDelegate>
 
 
 @property (nonatomic ,strong) UIView *header;
-@property (nonatomic ,strong) NSArray *childViews;
+
 
 @end
 
@@ -29,34 +29,44 @@
     }
     return self;
 }
-//加载内容
-- (void)containerWithChildviews:(NSArray *)childviews content:(NSDictionary *)dict {
-    if (childviews.count <1) return;
-    self.childViews = childviews;
-    
-    NSArray *subviews = self.scrollView.subviews;
-    //数据重置
-    BOOL scrollViewExistsSubview = subviews.count>0 ? YES : NO;
 
-    for (HTBaseView *childview in self.childViews) {
-        if (scrollViewExistsSubview) {
-            for (HTBaseView *subview in subviews) {
-                if ([subview isEqual:childview]) {
-                    [subview removeFromSuperview];
-                }
-            }
-        }
-        [self.scrollView addSubview:childview];
 
-        NSArray *data = dict[NSStringFromClass([childview class])];
-        if (data.count > 0) {
-            [childview.dataArray removeAllObjects];
-            [childview.dataArray addObjectsFromArray:data];
+- (void)loadContainer:(NSDictionary *)content withChildProtocol:(id<HTScrollProtocol>)delegate {
+    if(content.allValues.count < 1) return;
+    for (UIView *view in self.scrollView.subviews) {
+        if ([view isKindOfClass:[HTMyCenterTableView class]]) {
+            [view removeFromSuperview];
         }
-        [childview.tableView reloadData];
     }
-
+    [content enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
+        HTMyCenterTableView *table = [[HTMyCenterTableView alloc] initWithFrame:CGRectZero];
+        table.identifier = key? (NSString*)key :@"" ;
+        [table.dataArray addObjectsFromArray:obj? (NSArray*)obj:@[]];
+        table.delegate = delegate;
+        [self.scrollView addSubview:table];
+        [self.childTables addObject:table];
+    }];
 }
+
+- (void)reloadChildTablesData:(NSDictionary *)content {
+    for (HTMyCenterTableView *table in self.childTables) {
+        NSArray *data = content[table.identifier];
+        [table.dataArray removeAllObjects];
+        [table.dataArray addObjectsFromArray:data?data:@[]];
+        [table.tableView reloadData];
+    }
+}
+
+- (void)setChildOffsetZero:(BOOL)childOffsetZero {
+    _childOffsetZero = childOffsetZero;
+    if (!_childOffsetZero) return;
+    for (HTMyCenterTableView *table in self.childTables) {
+        [table.tableView setContentOffset:CGPointZero animated:NO];
+    }
+  
+}
+
+
 // 切换内容
 - (void)setSelectIndex:(NSInteger)selectIndex {
     _selectIndex = selectIndex;
@@ -76,15 +86,15 @@
     [super layoutSubviews];
     CGFloat self_w = CGRectGetWidth(self.frame);
     CGFloat self_h = CGRectGetHeight(self.frame);
-    self.scrollView.frame = CGRectMake(0.f, 0, self_w, self_h);
+    self.scrollView.frame = CGRectMake(0.f, marginTop, self_w, self_h - marginTop);
     CGFloat scroll_w = CGRectGetWidth(self.scrollView.frame);
     CGFloat scroll_h = CGRectGetHeight(self.scrollView.frame);
     
-    [self.scrollView setContentSize:CGSizeMake(scroll_w*self.childViews.count, scroll_h)];
+    [self.scrollView setContentSize:CGSizeMake(scroll_w*self.childTables.count, scroll_h)];
     NSInteger index = 0;
-    for (HTBaseView *childview in self.childViews) {
-        childview.frame = CGRectMake(scroll_w * index, 0, scroll_w, scroll_h);
-        childview.tableHeaderSize = CGSizeMake(scroll_w, CGRectGetHeight(self.header.frame));
+    for (HTMyCenterTableView *table in self.childTables) {
+        table.frame = CGRectMake(scroll_w * index, 0, scroll_w, scroll_h);
+        table.tableHeaderSize = CGSizeMake(scroll_w, CGRectGetHeight(self.header.frame));
         index ++;
     }
 }
@@ -110,9 +120,14 @@
         _scrollView.pagingEnabled = YES;
         _scrollView.bounces = NO;
         _scrollView.delegate = self;
-        _scrollView.backgroundColor  =[UIColor blueColor];
     }
     return _scrollView;
 }
-
+- (NSMutableArray *)childTables{
+    if (!_childTables) {
+        _childTables  = [NSMutableArray arrayWithCapacity:2];
+    }
+    return _childTables;
+    
+}
 @end

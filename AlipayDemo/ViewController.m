@@ -12,17 +12,19 @@
 @end
 
 @implementation ViewController
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:YES];
+    self.tabBarController.tabBar.hidden = YES;
+    self.navigationController.navigationBarHidden = NO;
+
+
+
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    self.view.backgroundColor = [UIColor redColor];
-    UIView *viw = [[UIView alloc]initWithFrame:self.view.bounds];
-    viw.backgroundColor = [UIColor grayColor];
-    [self.view addSubview:viw ];
+    self.view.backgroundColor = [UIColor whiteColor];
 }
-
-
 
 
 

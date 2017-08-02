@@ -26,6 +26,11 @@
     }
     return self;
 }
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:YES];
+    self.tabBarController.tabBar.hidden = NO;
+
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"应用";

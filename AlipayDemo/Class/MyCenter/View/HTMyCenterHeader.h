@@ -12,6 +12,7 @@
 
 
 
+@property (nonatomic ,strong) UIColor *headerColor;
 
 /**
   根据selectIndex切换标题卡

@@ -11,7 +11,6 @@
 
 @interface HTAssetsView : HTBaseView
 
-@property (nonatomic ,assign) id <HTScrollProtocol> delegate;
 
 
 @end

@@ -229,7 +229,7 @@
             UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
             button.tag = 1 + i;
             [button addTarget:self action:@selector(selectAppModel:) forControlEvents:UIControlEventTouchUpInside];
-            [button setImage:[UIImage imageNamed:@"default_notload_white_small"] forState:UIControlStateNormal];
+            [button setBackgroundImage:[UIImage imageNamed:HeaderItems[i]] forState:UIControlStateNormal];
             [self.samllApps addObject:button];
             [self addSubview:button];
         }
@@ -243,7 +243,7 @@
     self.addBtn.frame = CGRectMake(self_w - 44, 30, 44, 28);
     for (int i = 0; i < 4; i++) {
         UIButton *samllBtn = self.samllApps[i];
-        samllBtn.frame = CGRectMake(20.f + 54.f*i, 20.f, 44.f, 44.f);
+        samllBtn.frame = CGRectMake(20.f + 54.f*i, 28.f, 28.f, 28.f);
     }
     
 }

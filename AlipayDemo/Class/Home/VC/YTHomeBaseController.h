@@ -14,6 +14,9 @@
 @class YTLastNavBarView;
 @class YTFirestNavBarView;
 
+
+
+
 @interface YTHomeBaseController :UIViewController  <YTHomeActionProtocol>
 
 

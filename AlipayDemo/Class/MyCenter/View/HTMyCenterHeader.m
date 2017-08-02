@@ -9,6 +9,12 @@
 #import "HTMyCenterHeader.h"
 
 #define OPTION_H 40.f
+
+
+#define TextFont(select) select? 17.f:15.f
+#define TextColor(select) select? [UIColor blackColor]:[UIColor grayColor]
+
+
 @interface HTMyCenterHeader  ()
 
 
@@ -55,14 +61,14 @@
         UIButton *option = self.swichArray[i];
         if (i==_selectIndex) {
             [UIView animateWithDuration:0.2 animations:^{
-                option.titleLabel.font = [UIFont systemFontOfSize:18.f];
-                [option setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+                option.titleLabel.font = [UIFont systemFontOfSize:TextFont(YES)];
+                [option setTitleColor:TextColor(YES) forState:UIControlStateNormal];
             }];
         }
         else{
             [UIView animateWithDuration:0.2 animations:^{
-                [option setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
-                option.titleLabel.font = [UIFont systemFontOfSize:14.f];
+                [option setTitleColor:TextColor(NO) forState:UIControlStateNormal];
+                option.titleLabel.font = [UIFont systemFontOfSize:TextFont(NO)];
             }];
         }
     }
@@ -71,12 +77,11 @@
 #pragma mark - Private Method
 
 - (void)ht_initializeControls {
-    self.backgroundColor = [UIColor orangeColor];
+    self.backgroundColor = self.headerColor;
     [self addSubview:self.optionView];
 }
 - (void)layoutSubviews {
     [super layoutSubviews];
-    
     CGFloat self_w = CGRectGetWidth(self.frame);
     CGFloat self_h = CGRectGetHeight(self.frame);
     
@@ -106,9 +111,9 @@
     if (!_optionView) {
         _optionView = [[UIView alloc] initWithFrame:CGRectZero];
         _optionView.backgroundColor = [UIColor whiteColor];
-        _optionView.layer.shadowOpacity = 0.3;
-        _optionView.layer.shadowOffset = CGSizeMake(0, 2);
-        _optionView.layer.shadowColor = [UIColor grayColor].CGColor;
+//        _optionView.layer.shadowOpacity = 0.2;
+//        _optionView.layer.shadowOffset = CGSizeMake(0, 2);
+//        _optionView.layer.shadowColor = [UIColor grayColor].CGColor;
     }
     return _optionView;
 }
@@ -119,6 +124,11 @@
     }
     return _swichArray;
 }
-
+- (UIColor *)headerColor {
+    if (!_headerColor) {
+        return [UIColor hx_colorWithHexRGBAString:@"#ffe4c2"];
+    }
+    return _headerColor;
+}
 
 @end

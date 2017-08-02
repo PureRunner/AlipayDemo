@@ -19,7 +19,14 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
-    
+//    [UIView transitionWithView:[UIApplication sharedApplication].keyWindow duration:0.5f options:UIViewAnimationOptionTransitionCrossDissolve animations:^{
+//        BOOL oldState = [UIView areAnimationsEnabled];
+//        [UIView setAnimationsEnabled:NO];
+//        [UIApplication sharedApplication].keyWindow.rootViewController = [UIViewController new];
+//        [UIView setAnimationsEnabled:oldState];
+//    } completion:^(BOOL finished) {
+//        
+//    }];
 
     return YES;
 }

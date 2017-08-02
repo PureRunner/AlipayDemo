@@ -200,23 +200,32 @@ CGFloat const  headerView_h = 110.f;
 - (void)scrollViewContentOffset:(UIScrollView *)scrollView{
     CGFloat y = scrollView.contentOffset.y;
 //    NSLog(@"---:%f--last-:%f",y,lastOffset);
-    if (lastOffset < y) {
-        //上滑
-        if (y > 20.f) {
-             [scrollView setContentOffset:CGPointMake(0, maxOffset) animated:YES];
-        }
-        else{
-            [scrollView setContentOffset:CGPointMake(0, 0) animated:YES];
-        }
+//    if (lastOffset < y) {
+//        //上滑
+//        if (y > 20.f) {
+//             [scrollView setContentOffset:CGPointMake(0, maxOffset) animated:YES];
+//        }
+//        else{
+//            [scrollView setContentOffset:CGPointMake(0, 0) animated:YES];
+//        }
+//    }
+//    else{
+//        if (y < maxOffset - 20){
+//            [scrollView setContentOffset:CGPointMake(0, 0) animated:YES];
+//        }
+//        else{
+//            [scrollView setContentOffset:CGPointMake(0, maxOffset) animated:YES];
+//        }
+//    }
+    if (lastOffset < y/2) {
+        [scrollView setContentOffset:CGPointMake(0, maxOffset) animated:YES];
+
     }
     else{
-        if (y < maxOffset - 20){
-            [scrollView setContentOffset:CGPointMake(0, 0) animated:YES];
-        }
-        else{
-            [scrollView setContentOffset:CGPointMake(0, maxOffset) animated:YES];
-        }
+        [scrollView setContentOffset:CGPointMake(0, 0) animated:YES];
     }
+
+    
 }
 
 #pragma mark - UI

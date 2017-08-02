@@ -10,8 +10,7 @@
 #import "HTMyCenterHeader.h"
 
 #import "HTContainerView.h"
-#import "HTSetView.h"
-#import "HTAssetsView.h"
+#import "HTMyCenterTableView.h"
 
 #define header_H 200
 @interface HTMyCenterController ()
@@ -22,35 +21,42 @@
 @property (nonatomic ,strong) HTContainerView *container;
 
 @property (nonatomic ,strong) UIView *lineView;
-@property (nonatomic ,strong) HTSetView *setView;
-@property (nonatomic ,strong) HTAssetsView *assetsView;
+
+
 @end
 
 @implementation HTMyCenterController
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:YES];
+    self.tabBarController.tabBar.hidden = NO;
+    
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.automaticallyAdjustsScrollViewInsets = NO;
     self.title = @"个人中心";
+    self.automaticallyAdjustsScrollViewInsets = NO;
     //    self.navigationController.navigationBar.translucent = NO;
     [self.view addSubview:self.container];
     [self.view addSubview:self.headerView];
 
     self.container.frame = CGRectMake(0, 64, SCREEN_W, SCREEN_H - navBar_h - tabbar_h);
     self.headerView.frame = CGRectMake(0, navBar_h, SCREEN_W, header_H);
-    NSArray *ary1 = @[@"assets",@"assets",
-                      @"assets",@"assets",
-                      @"assets",@"assets",
-                      @"assets",@"assets",
-                      @"assets",@"assets"];
-    NSArray *ary2 = @[@"setting",@"setting",
-                      @"setting",@"setting"];
+    [self.headerView headerWithOptions:@[@"排行榜",@"圈子",@"资产"]];
+    NSArray *ary1 = @[@"AAAA",@"AAAA",
+                      @"AAAA",@"AAAA",
+                      @"AAAA",@"AAAA",
+                      @"AAAA",@"AAAA",
+                      @"AAAA",@"AAAA"];
+    NSArray *ary2 = @[@"BBBB",@"BBBB",
+                      @"BBBB",@"BBBB"];
+    NSArray *ary3 = @[@"CCCC",@"CCCC",
+                      @"CCCC",@"CCCC",@"CCCC"];
     
-    [self.container containerWithChildviews:@[self.assetsView,self.setView] content:@{@"HTAssetsView":ary1,@"HTSetView":ary2}];
+    [self.container loadContainer:@{@"aaaa":ary1,@"bbbb":ary2,@"cccc":ary3} withChildProtocol:self];
 
-    [self.headerView headerWithOptions:@[@"assets",@"setting"] ];
     
 
-    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(selectOption:) name:@"htContainerCurrentValue" object:nil];
 
 }
@@ -60,10 +66,10 @@
     NSInteger index = [notifi.object integerValue] - NormalValue;
     self.headerView.selectIndex = index;
     self.container.selectIndex = index;
-    [self.assetsView.tableView setContentOffset:CGPointZero animated:NO];
-    [self.setView.tableView setContentOffset:CGPointZero animated:NO];
+    self.container.childOffsetZero = YES;
 
 }
+
 
 #pragma mark - HTScrollProtocol
 
@@ -94,20 +100,6 @@
         _container = [[HTContainerView alloc] initWithFrame:CGRectZero withHeader:self.headerView];
     }
     return _container;
-}
-- (HTSetView *)setView {
-    if (!_setView) {
-        _setView = [[HTSetView alloc] initWithFrame:CGRectZero];
-        _setView.delegate = self;
-    }
-    return _setView;
-}
-- (HTAssetsView *)assetsView {
-    if (!_assetsView) {
-        _assetsView = [[HTAssetsView alloc] initWithFrame:CGRectZero];
-        _assetsView.delegate = self;
-    }
-    return _assetsView;
 }
 
 

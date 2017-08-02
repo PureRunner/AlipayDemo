@@ -7,6 +7,7 @@
 //
 
 #import "HTHomeMainController.h"
+#import "ViewController.h"
 
 @interface HTHomeMainController () <UITableViewDelegate ,UITableViewDataSource>
 
@@ -18,6 +19,7 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:YES];
     self.navigationController.navigationBarHidden = YES;
+    self.tabBarController.tabBar.hidden = NO;
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -76,7 +78,10 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    ViewController *vc = [ViewController new];
     
+
+    [self.navigationController pushViewController:vc animated:YES];
 }
 - (NSMutableArray *)dataArray {
     if (!_dataArray) {

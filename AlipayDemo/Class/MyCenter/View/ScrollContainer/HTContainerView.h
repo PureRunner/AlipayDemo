@@ -13,6 +13,10 @@
 
 @property (nonatomic ,strong) UIScrollView *scrollView;
 
+@property (nonatomic ,strong) NSMutableArray *childTables;
+
+@property (nonatomic ,assign) BOOL childOffsetZero;
+
 
 /**
    根据selectIndex切换内容
@@ -20,6 +24,7 @@
 
 @property (nonatomic ,assign) NSInteger selectIndex;
 
+@property (nonatomic ,strong) NSDictionary *contentDictionary;
 
 
 /**
@@ -31,11 +36,9 @@
  */
 - (id)initWithFrame:(CGRect)frame withHeader:(UIView *)header;
 
-/**
- 设置容器量
 
- @param childviews 容器视图
- @param dict 容器视图及数据 格式：@"HTBaseView":@[]
- */
-- (void)containerWithChildviews:(NSArray *)childviews content:(NSDictionary *)dict ;
+- (void)loadContainer:(NSDictionary *)content withChildProtocol:(id<HTScrollProtocol>)delegate;
+
+- (void)reloadChildTablesData:(NSDictionary *)content ;
+
 @end
